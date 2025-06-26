@@ -1,3 +1,5 @@
+
+
 {
   "name": "ai-language-backend",
   "version": "1.0.0",
@@ -6,10 +8,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "express": "^4.18.2",
-    "openai": "^4.26.0"
+    "openai": "^4.27.0"
   }
 }
