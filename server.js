@@ -24,8 +24,8 @@ app.post("/generate-test", async (req, res) => {
       messages: [{ role: "user", content: prompt }],
     });
 
-    const result = completion.choices[0].message.content;
-    res.json({ test: result });
+   const result = completion.choices[0].message.content;
+    res.json({ test: result }); // << bu muhim!
 
   } catch (error) {
     console.error("Xatolik:", error);
