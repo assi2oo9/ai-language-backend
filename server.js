@@ -26,6 +26,7 @@ app.post("/generate-test", async (req, res) => {
 
     const result = completion.choices[0].message.content;
     res.json({ test: result });
+
   } catch (error) {
     console.error("Xatolik:", error);
     res.status(500).json({ error: "AI so‘rovda xatolik yuz berdi" });
