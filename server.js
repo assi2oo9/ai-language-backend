@@ -14,6 +14,11 @@ const openai = new OpenAI({
 app.post("/generate-test", async (req, res) => {
   const { language, level } = req.body;
 
+  // Validate input
+  if (!language || !level) {
+    return res.status(400).json({ error: "language va level talab qilinadi" });
+  }
+
   try {
     const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
@@ -29,7 +34,10 @@ app.post("/generate-test", async (req, res) => {
     res.json({ test });
   } catch (error) {
     console.error("❌ Xatolik:", error);
-    res.status(500).json({ error: "AI so‘rovda xatolik yuz berdi" });
+    res.status(500).json({
+      error: "AI so‘rovda xatolik yuz berdi",
+      details: process.env.NODE_ENV === "development" ? error.message : undefined,
+    });
   }
 });
 
